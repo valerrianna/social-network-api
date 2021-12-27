@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
-const ThoughSchema = new Schema ({
-    thoughText: {
+const ThoughtSchema = new Schema ({
+    thoughtText: {
         type: String,
         required: 'You must enter a text',
         
