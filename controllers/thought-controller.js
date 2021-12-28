@@ -60,7 +60,7 @@ const thoughtController = {
   },
 
   //update thought
-  updateThoughts({params, body}, res) {
+  updateThought({params, body}, res) {
     Thought.findOneAndUpdate({
       _id: params.id}, 
       body, 
