@@ -12,13 +12,13 @@ const {
 
 // Set up GET all and POST at /api/users
 router
-  .route('/api/users')
-  .get(getAllUser)
-  .post(createUser);
+  .route('/')
+  .get()
+  .post();
 
 // Set up GET one, PUT, and DELETE at /api/users/:id
 router
-  .route('/api/users/:userId')
+  .route('/:id')
   .get(getUserById)
   .put(updateUser)
   .delete(deleteUser);
@@ -26,7 +26,14 @@ router
 
 // Set up POST, DELETE at /api/users/:id/friends/:friendsId
 router
-  .route('/api/users/:userId/friends/:friendId')
+  .route('/id/friends/:friendId')
   .post(addFriend)
   .delete(deleteFriend)
+
+// /api/users
+router
+    .route('/')
+    .get(getAllUser)
+    .post(createUser);
+
 module.exports = router;

@@ -1,11 +1,11 @@
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
 const userController = {
     // get all users
     getAllUser(req, res) {
       User.find({})
         .populate ({
-          path: 'thought',
+          path: 'thoughts',
           select: '-__v'
         })
         .populate ({
@@ -24,7 +24,7 @@ const userController = {
     getUserById({ params }, res) {
       User.findOne({ _id: params.id })
         .populate ({
-          path: 'thought',
+          path: 'thoughts',
           select: '-__v'
         })
         .populate ({
@@ -48,7 +48,7 @@ const userController = {
 
     // create user
     createUser({ body }, res) {
-        Pizza.create(body)
+        User.create(body)
         .then(dbUserData => res.json(dbUserData))
         .catch(err => res.status(400).json(err));
     },
